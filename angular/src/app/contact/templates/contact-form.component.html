@@ -1,0 +1,119 @@
+<form novalidate [formGroup]="form">
+    <div>
+        <nav>
+            <button [disabled]="!form.valid" (click)="save()" [attr.aria-label]="dictionarySvc.getLabel('SAVE_ACTION_LINK')" [attr.title]="dictionarySvc.getLabel('SAVE_ACTION_LINK')" type="button">
+                <span class="glyphicon glyphicon-ok"></span>
+            </button>
+            <a routerLink="/contacts/" [attr.aria-label]="dictionarySvc.getLabel('BACK_TO_HOME')" [attr.title]="dictionarySvc.getLabel('BACK_TO_HOME')">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+        </nav>
+    </div>
+
+    <img #picture [src]="form.get('picture').value" [attr.alt]="dictionarySvc.getLabel('PICTURE_ALT_LABEL')" class="img-responsive">
+
+    <div class="form-group">
+        <label for="picture">
+            {{ dictionarySvc.getLabel('PICTURE_FORM_LABEL')}}
+        </label>
+        <input [attr.aria-invalid]="form.get('picture').errors" type="url" name="picture" [attr.placeholder]="dictionarySvc.getLabel('PICTURE_FORM_PLACEHOLDER')"
+            formControlName="picture" [attr.aria-label]="dictionarySvc.getLabel('PICTURE_FORM_LABEL')">
+        <div *ngIf="!form.get('picture').pristine && form.get('picture').errors" class="alert alert-danger" aria-live="polite" role="alert">
+            {{ pictureErrorMessage }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name">
+            {{ dictionarySvc.getLabel('NAME_FORM_LABEL')}}
+        </label>
+        <input type="text" [attr.placeholder]="dictionarySvc.getLabel('NAME_FORM_PLACEHOLDER')" formControlName="name" [attr.aria-label]="dictionarySvc.getLabel('NAME_FORM_LABEL')"
+            name="name">
+        <div *ngIf="!form.get('name').pristine && form.get('name').errors" class="alert alert-danger" aria-live="polite" role="alert">
+            {{ dictionarySvc.getLabel('INPUT_REQUIRED_ERROR')}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone">
+            {{ dictionarySvc.getLabel('PHONE_FORM_LABEL') }}
+        </label>
+        <input [attr.aria-invalid]="form.get('phone').errors" maxlength="14" type="text" [attr.placeholder]="dictionarySvc.getLabel('PHONE_FORM_PLACEHOLDER')"
+            formControlName="phone" [attr.aria-label]="dictionarySvc.getLabel('PHONE_FORM_LABEL')" name="phone">
+        <div *ngIf="!form.get('phone').pristine && form.get('phone').errors" class="alert alert-danger" aria-live="polite" role="alert">
+            {{ dictionarySvc.getLabel('INPUT_PATTERN_ERROR') }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">
+            {{ dictionarySvc.getLabel('EMAIL_FORM_LABEL') }}
+        </label>
+        <input type="email" [attr.aria-invalid]="!!form.get('email').errors" [attr.placeholder]="dictionarySvc.getLabel('EMAIL_FORM_PLACEHOLDER')"
+            [attr.aria-label]="dictionarySvc.getLabel('EMAIL_FORM_LABEL')" formControlName="email" name="email">
+        <div *ngIf="!form.get('email').pristine && form.get('email').errors" class="alert alert-danger" aria-live="polite" role="alert">
+            {{emailErrorMessage}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="user">
+            {{ dictionarySvc.getLabel('USER_FORM_LABEL')}}
+        </label>
+        <input type="text" [attr.aria-invalid]="!!form.get('user').errors" [attr.placeholder]="dictionarySvc.getLabel('USER_FORM_PLACEHOLDER')"
+            [attr.aria-label]="dictionarySvc.getLabel('USER_FORM_LABEL')" formControlName="user" name="user">
+    </div>
+
+
+    <ng-container formGroupName="address">
+        <div class="form-group">
+            <label for="street">
+                {{ dictionarySvc.getLabel('STREET_FORM_LABEL')}}
+            </label>
+            <input [attr.aria-invalid]="!!form.get('address.street').errors" type="text" name="street" [attr.aria-label]="dictionarySvc.getLabel('STREET_FORM_LABEL')"
+                [attr.placeholder]="dictionarySvc.getLabel('STREET_FORM_PLACEHOLDER')" formControlName="street">
+            <div *ngIf="!form.get('address.street').pristine && !!form.get('address.street').errors" class="alert alert-danger" aria-live="polite"
+                role="alert">
+                {{ dictionarySvc.getLabel('INPUT_REQUIRED_ERROR')}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="state">
+                {{ dictionarySvc.getLabel('STATE_FORM_LABEL') }}
+            </label>
+            <select [value]="form.get('address.state').value" [attr.aria-invalid]="!!form.get('address.state').errors" name="state" [attr.aria-label]="dictionarySvc.getLabel('STATE_FORM_LABEL')"
+                formControlName="state">
+                <option value="">
+                    {{ dictionarySvc.getLabel('STATE_FORM_PLACEHOLDER')}}
+                </option>
+                <option *ngFor="let state of addressSvc.states">{{ state }}</option>
+            </select>
+            <div *ngIf="!form.get('address.state').pristine && !!form.get('address.state').errors" class="alert alert-danger" aria-live="polite"
+                role="alert">
+                {{ dictionarySvc.getLabel('INPUT_REQUIRED_ERROR')}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="city">
+                {{ dictionarySvc.getLabel('CITY_FORM_LABEL') }}
+            </label>
+            <input type="text" name="city" [attr.aria-label]="dictionarySvc.getLabel('CITY_FORM_LABEL')" [attr.placeholder]="dictionarySvc.getLabel('CITY_FORM_PLACEHOLDER')"
+                formControlName="city">
+        </div>
+
+        <div class="form-group">
+            <label for="zipCode">
+                {{ dictionarySvc.getLabel('ZIPCODE_FORM_LABEL') }}
+            </label>
+            <input type="text" [attr.aria-invalid]="!!form.get('address.zipCode').errors" name="zipCode" [attr.aria-label]="dictionarySvc.getLabel('ZIPCODE_FORM_LABEL')"
+                [attr.placeholder]="dictionarySvc.getLabel('ZIPCODE_FORM_PLACEHOLDER')" formControlName="zipCode" maxlength="5">
+            <div *ngIf="!form.get('address.zipCode').pristine && !!form.get('address.zipCode').errors" class="alert alert-danger" aria-live="polite"
+                role="alert">
+                {{zipCodeErrorMessage}}
+            </div>
+        </div>
+    </ng-container>
+
+</form>

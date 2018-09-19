@@ -1,0 +1,47 @@
+Qué es Angular?
+
+Motivaciones de Angular
+
+Angular2 es un framework aparte de AngularJS
+Es un framework para desarrollar aplicaciones web, escritorio y web
+SPAs
+Utiliza un paradigma orientado a componentes
+Utiliza typescript (es6, programación orientada a objetos y atscript)
+Diferencia significativa en arquitectura con respecto a su predecesor
+Tiene mejoras significativas en tiempos de ejecución con su respecto a su predecesor
+Tiene mejoras en su proceso de minificación
+Sus mejoras hacen de nuestras aplicaciones más escalables
+
+Arquitectura en Angular2
+
+Módulos que encierran componentes, servicios, directivas y pipes
+Servicios que adoptan el concepto de DI, y éstos se propagan según lo indique el desarrollador
+Componentes que pueden ser huecos o interactivos, es decir: sólo mostrar información o interactuar 
+con el usuario
+éstos heredan sus cambios
+Las directivas pueden ser estructurales o de contenido; agregar DOM  ó modificar DOM existente
+Cada artefacto en el framework son clases que se distinguen entre sí mediante el uso de decoradores.
+
+Diferencia con AngularJS
+Angular2 es un rediseño de arquitectura
+Se rediseñó pensando en ser compatible con dispositivos móviles 
+Se mejoró el proceso de minificación, haciendo de las aplicaciones más rápidas con respecto a su predecesor
+Utiliza un paradigma orientado a componentes y orientado a objetos
+Utiliza Typescript, para mitigar sustancialmente la producción de errores en la fase de desarrollo, 
+agilizar el desarrollo en proyectos escalables y utilizar los beneficios de ES6 cuidando de los problemas 
+de interoperabilidad entre plataformas.
+Opta por la programación orientada a objetos
+Utiliza decoradores para indicar al compilador el como tratar a una clase en particular (componente, directiva,
+pipe, servicio ó modulo)
+
+Cómo empezar a utilizar Angular2
+Revisando la documentación de typescript 
+Angular CLI
+Generador para proyectos en Angular2
+Genera artefactos de Angular2 vía línea de comandos
+Cómo descargarlo
+Lista oficial de comandos
+Prerequisitos, etcétera
+
+Componentes
+

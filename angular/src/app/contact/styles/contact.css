@@ -1,0 +1,38 @@
+
+div {
+  position: relative;
+}
+nav {
+  position: absolute;
+  right: 0;
+}
+img {
+  display: block;
+  max-height: 350px;
+}
+img + h3 {
+  background-color: transparent;
+  position: absolute;
+  bottom: 1rem;
+  padding: 1rem;
+}
+button {
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 1rem;
+} button[disabled] {
+    opacity: 0.5;
+}
+.upload-picture {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+  display: none;
+}
+img ~ .upload-picture {
+  display: block;
+}
+label {
+  display: block;
+}
