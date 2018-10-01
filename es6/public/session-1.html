@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, inital-scale=1">
+
+    <title>Es6</title>
+    <style>
+        ol {
+            counter-reset: item;
+        }
+
+        li {
+            display: block
+        }
+
+        li:before {
+            content: counters(item, ".") " ";
+            counter-increment: item;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Es6</h1>
+    <div id="container">
+        <h3>Session 1</h3>
+
+        <ol>
+            <li>
+                Scope
+                <ol>
+                    <li>Block scope variables</li>
+                    <li>Block scope functions
+                    </li>
+                </ol>
+            </li>
+            <li>
+                Constants
+            </li>
+            <li>
+                Modules
+                <ol>
+                    <li>
+                        Export
+                    </li>
+                    <li>Import</li>
+                    <li>Default</li>
+                    <li>Wildcard</li>
+                </ol>
+            </li>
+            <li>
+                Enhanced Object Properties
+                <ol>
+                    <li>Property shorthand</li>
+                    <li>Computed property names</li>
+                    <li>Method properties</li>
+                </ol>
+            </li>
+            <li>
+                Iterators
+                <ol>
+                    <li>For-of</li>
+                </ol>
+            </li>
+        </ol>
+
+        <h3>Information</h3>
+        <p>Read test cases to illustrate each topic.</p>
+        <pre>
+            e.g.
+                topic   => test case
+                modules => test/session-1/modules.spec.js
+        </pre>
+
+        <h3>Excercises</h3>
+        <p>Read carefully the next instructions and implement the solution on src/session-1/excercise.js. The
+            excercise is complete when all test cases (test/session-1/excercise) passes</p>
+        <ol>
+            <li>Should import the PHI constant, and being a valid <a href="https://en.wikipedia.org/wiki/Golden_ratio">PHI
+                    number (golden ratio)</a></li>
+            <li>Should import an object that has a property method that generates an array with "n" values with
+                value "0~n-1". If n value is not present, return an empty array.
+                <pre>
+                        e.g. 
+                            obj.generateArray()  => []
+                            obj.generateArray(1) => [0]
+                            obj.generateArray(5) => [0, 1, 2, 3, 4] 
+                    </pre>
+            </li>
+            <li>Should import PHI and array method in obj variable with Ex1 alias</li>
+        </ol>
+    </div>
+
+
+
+    <script src="src/bundler.js"></script>
+</body>
+
+</html>

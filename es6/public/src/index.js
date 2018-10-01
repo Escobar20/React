@@ -1,5 +1,3 @@
-import * as foo from './foo/foo.js';
+import * as Session1 from './session-1';
 
-let $container = document.getElementById('container');
-
-foo.initModule($container);
+export { Session1 }

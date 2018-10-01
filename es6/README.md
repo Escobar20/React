@@ -1,4 +1,36 @@
-# es6
+# ES6
+
+## Session 1
+- Scope
+    - Block scope variables
+    - Block scope functions
+- Constants
+- Modules
+    - Export
+    - Import
+    - Default
+    - Wildcard
+- Enhanced Object Properties
+    - Property shorthand
+    - Computed property names
+    - Method properties
+- Iterators
+    - For-of
+
+## Session 2
+- New built-in functions
+- Arrow functions
+- Extended parameters
+- Template literals
+- Internationalization
+
+## Session 3
+- Destructuring
+- Generators
+- Promises
+- Classes
+- Regular Expressions
+
 
 ## How to use?
 - Install dependencies running ```npm install``` inside the project folder.
