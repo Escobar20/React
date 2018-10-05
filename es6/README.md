@@ -1,5 +1,21 @@
 # ES6
 
+## Clone
+
+`git clone  https://<your.enterprise.id>@innersource.accenture.com/scm/mdcfed/xd-trainings.git -b training/es6`
+
+## Technologies used
+- ES6+
+- Babel
+
+- Node
+
+- Gulp
+
+- Karma
+- Jasmine
+- Mocha
+
 ## Session 1
 - Scope
     - Block scope variables
@@ -19,6 +35,15 @@
 
 ## Session 2
 - New built-in functions
+    - Object.assign
+    - Array.filter
+    - Array.findIndex
+    - String.repeat
+    - String.startsWith
+    - String.endsWith
+    - Number.isNaN
+    - Number.isFinite
+    - Math.sign
 - Arrow functions
 - Extended parameters
 - Template literals
