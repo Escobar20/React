@@ -46,6 +46,9 @@
     - Math.sign
 - Arrow functions
 - Extended parameters
+    - Default parameters
+    - Rest parameters
+    - Spread operators
 - Template literals
 - Internationalization
 
