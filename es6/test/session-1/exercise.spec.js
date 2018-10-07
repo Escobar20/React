@@ -2,7 +2,7 @@ function isPhi(phi) {
     return Math.pow(phi, 2) - phi - 1 === 0;
 }
 
-fdescribe('Excercise 1', function () {
+describe('Excercise 1', function () {
     describe('Should import the PHI constant, and being a valid PHI number', function () {
         it('Should exists PHI', function () {
             expect(PHI).toBeDefined()
