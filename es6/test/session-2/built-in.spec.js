@@ -1,33 +1,33 @@
-import { Session2 } from '../../public/src/';
+import { BuiltIn } from '../../public/src/session-2';
 
 describe('New Object built-in methods', function () {
     describe('Object.keys', function () {
         it('Pulls the keys from an obj as an array', function () {
             expect(
-                Object.keys(Session2.BuiltIn.obj)
+                Object.keys(BuiltIn.obj)
             ).toEqual(['id', 'guid'])
-            expect(Session2.BuiltIn.obj.id).toBeDefined();
-            expect(Session2.BuiltIn.obj.guid).toBeDefined();
+            expect(BuiltIn.obj.id).toBeDefined();
+            expect(BuiltIn.obj.guid).toBeDefined();
         })
     });
     describe('Object.assign', function () {
         it('Extend properties', function () {
-            Object.assign(Session2.BuiltIn.obj, {
+            Object.assign(BuiltIn.obj, {
                 xfz: 1
             })
 
             expect(
-                Session2.BuiltIn.obj.hasOwnProperty('xfz')
+                BuiltIn.obj.hasOwnProperty('xfz')
             ).toBeTruthy()
         })
 
         it('Create a new instance of extend object', function () {
-            let bar = Object.assign({}, Session2.BuiltIn.obj, {
+            let bar = Object.assign({}, BuiltIn.obj, {
                 bar: true
             })
 
             expect(
-                Session2.BuiltIn.obj.hasOwnProperty('bar')
+                BuiltIn.obj.hasOwnProperty('bar')
             ).toBeFalsy()
 
             expect(
@@ -41,20 +41,20 @@ describe('New Array built-in methods', function () {
         describe('It returns a new array filtered by specified criteria in predicate', function () {
             it('Returns an empty array when no criteria matches', function () {
                 expect(
-                    Session2.BuiltIn.arr.filter(item => item.guid === '').length
+                    BuiltIn.arr.filter(item => item.guid === '').length
                 ).toBe(0);
             })
             it('Returns a new array when criteria matches', function () {
                 expect(
-                    Session2.BuiltIn.arr.filter(item => item.guid[0] === '4').length
+                    BuiltIn.arr.filter(item => item.guid[0] === '4').length
                 ).toBe(2);
             })
             describe('You can use the index of each element in your predicate', function () {
                 it('Should returns odd index elements on array', function () {
-                    const filteredData = Session2.BuiltIn.arr.filter((item, index) => index % 2 == 0);
+                    const filteredData = BuiltIn.arr.filter((item, index) => index % 2 == 0);
                     expect(
                         filteredData.length
-                    ).toBe(Math.ceil(Session2.BuiltIn.arr.length / 2))
+                    ).toBe(Math.ceil(BuiltIn.arr.length / 2))
                 });
             })
         })
@@ -64,32 +64,32 @@ describe('Array.findIndex', function () {
     describe('It returns the index of specified item on array, basing the criteria on predicate', function () {
         it('Returns the index when item it is found', function () {
             expect(
-                Session2.BuiltIn.arr.findIndex(item => item.guid === '4785902b-629c-4ce5-a0ea-7e53663752c8')
+                BuiltIn.arr.findIndex(item => item.guid === '4785902b-629c-4ce5-a0ea-7e53663752c8')
             ).toBe(6);
         })
         it('Returns an -1, when item it is not found', function () {
             const guid = '4785902b-629c-4ce5-a0ea-7e53663752c8';
-            let idx = Session2.BuiltIn.arr.findIndex(item => item.guid === guid);
+            let idx = BuiltIn.arr.findIndex(item => item.guid === guid);
 
-            Session2.BuiltIn.arr[idx] = '4785902b-629c-4ce5-a0ea-7e53663752c9';
+            BuiltIn.arr[idx] = '4785902b-629c-4ce5-a0ea-7e53663752c9';
 
             expect(
-                Session2.BuiltIn.arr.findIndex(item => item.guid === guid)
+                BuiltIn.arr.findIndex(item => item.guid === guid)
             ).toBe(-1);
-            Session2.BuiltIn.arr[idx] = guid;
+            BuiltIn.arr[idx] = guid;
         })
     })
 });
 
 describe('New string built-in methods', function () {
     beforeEach(function () {
-        Session2.BuiltIn.str = `e${'h'.repeat(5)} f${'o'.repeat(5)}tball!`;
+        BuiltIn.str = `e${'h'.repeat(5)} f${'o'.repeat(5)}tball!`;
     })
     describe('String.repeat', function () {
         it('Should repeats a string, many times you specified', function () {
 
             expect(
-                Session2.BuiltIn.str
+                BuiltIn.str
             ).toBe('ehhhhh foooootball!')
         })
     });
@@ -98,24 +98,24 @@ describe('New string built-in methods', function () {
 
             it('Returns true when you can find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.startsWith('ehhhhh ')
+                    BuiltIn.str.startsWith('ehhhhh ')
                 ).toBeTruthy();
             })
             it('Returns false when you can\'t find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.startsWith('h ')
+                    BuiltIn.str.startsWith('h ')
                 ).toBeFalsy();
             })
         })
         describe('You can search from an initial position', function () {
             it('Returns true when you can find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.startsWith('foooootball!', 7)
+                    BuiltIn.str.startsWith('foooootball!', 7)
                 ).toBeTruthy();
             })
             it('Returns false when you can\'t find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.startsWith('!', 0)
+                    BuiltIn.str.startsWith('!', 0)
                 ).toBeFalsy();
             })
         })
@@ -124,12 +124,12 @@ describe('New string built-in methods', function () {
         describe('You can search certain string until a specified position, by default it\'s the length', function () {
             it('Returns true when you can find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.endsWith('foooootball!')
+                    BuiltIn.str.endsWith('foooootball!')
                 ).toBeTruthy();
             })
             it('Returns false when you can\'t find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.endsWith('e')
+                    BuiltIn.str.endsWith('e')
                 ).toBeFalsy();
             })
         })
@@ -137,12 +137,12 @@ describe('New string built-in methods', function () {
 
             it('Returns true when you can find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.endsWith('all', Session2.BuiltIn.str.length - 1)
+                    BuiltIn.str.endsWith('all', BuiltIn.str.length - 1)
                 ).toBeTruthy();
             })
             it('Returns true when you can find certain string', function () {
                 expect(
-                    Session2.BuiltIn.str.endsWith('e', 2)
+                    BuiltIn.str.endsWith('e', 2)
                 ).toBeFalsy();
             })
 
@@ -243,7 +243,7 @@ describe('New Number built-in methods', function () {
 
     })
 });
-fdescribe('New Math built-in methods', function () {
+describe('New Math built-in methods', function () {
     describe('Math.sign', function () {
         it('Should returns an 1, when it\'s positive number', function () {
             expect(Math.sign(true)).toBe(1);
