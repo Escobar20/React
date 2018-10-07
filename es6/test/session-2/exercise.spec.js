@@ -15,7 +15,7 @@ describe('Exercise 2', function () {
             expect(Number(sd.toFixed(2))).toBe(1.87);
         })
     })
-    describe('Create a select function that receives a callback that will act as where clause; implement a where clause that uses endsWith, startsWith, isNaN and isFinite', function () {
+    describe('Create a select function that receives a callback that will act as where clause; implement where clauses that uses endsWith, startsWith, isNaN and isFinite', function () {
         it('Should exists their method', function () {
             expect(Exercise.select).toBeDefined();
         })
