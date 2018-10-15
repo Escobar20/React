@@ -50,8 +50,35 @@
         <p>Read carefully the next instructions and implement the solution on src/session-2/excercise.js. The
             excercise is complete when all test cases (test/session-2/excercise) passes</p>
         <ol>
-            <li>Calculate the <a href="https://www.khanacademy.org/math/probability/data-distributions-a1/summarizing-spread-distributions/a/calculating-standard-deviation-step-by-step">standard deviation</a> from a sample of numbers; use: arrow functions, rest parameters and re-use average or sum functions if you'd like</li>
-            <li>Create a select function that receives a callback that will act as where clause; implement where clauses that uses endsWith, startsWith, isNaN and isFinite</li>
+            <li>Calculate the <a href="https://www.khanacademy.org/math/probability/data-distributions-a1/summarizing-spread-distributions/a/calculating-standard-deviation-step-by-step">standard
+                    deviation</a> from a sample of numbers; use: arrow functions, rest parameters and re-use average or
+                sum functions if you'd like</li>
+            <li>Create a select function that receives a callback that will act as where clause; implement where
+                clauses that uses endsWith, startsWith, isNaN and isFinite</li>
+            <li>Implement a radioMenuBuilder that receives a name and options that output the respective html
+                <pre>
+                    e.g. 
+                        name    => name
+                        options => foo, bar
+                        
+                        <pre>
+                            &lt;fieldset&gt;
+                                &lt;legend&gt;name's Menu&lt;/legend&gt;
+                    
+                                &lt;div&gt;
+                                    &lt;input type="radio" name="name" value="foo" id="name-0" checked&gt;
+                                    &lt;label for="name-0"&gt;foo&lt;/label&gt;
+                                &lt;/div&gt;
+                    
+                                &lt;div&gt;
+                                    &lt;input type="radio" name="name" value="bar" id="name-1"&gt;
+                                    &lt;label for="name-1"&gt;bar&lt;/label&gt;
+                                &lt;/div&gt;
+                    
+                            &lt;/fieldset&gt;
+                        </pre>
+                </pre>
+            </li>
         </ol>
     </div>
 

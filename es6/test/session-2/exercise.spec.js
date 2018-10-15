@@ -15,10 +15,11 @@ describe('Exercise 2', function () {
             expect(Number(sd.toFixed(2))).toBe(1.87);
         })
     })
-    describe('Create a select function that receives a callback that will act as where clause; implement where clauses that uses endsWith, startsWith, isNaN and isFinite', function () {
-        it('Should exists their method', function () {
+    describe('Create a select function that receives a callback that will act as where clause', function () {
+        it('Should exists select method', function () {
             expect(Exercise.select).toBeDefined();
         })
+
         it('Where clause using startsWith', function () {
             expect(Exercise.select(
                 Exercise.sports, Exercise.clauses.startsWith('b')
@@ -40,7 +41,6 @@ describe('Exercise 2', function () {
                 Exercise.numbers, Exercise.clauses.isFinite
             )).toEqual([0])
         })
-
     })
     describe('Implement a radioMenuBuilder that receives a name and options that output the respective html', function () {
         it('Should return an empty string when the options are empty', function () {
@@ -75,7 +75,7 @@ describe('Exercise 2', function () {
             expect(
                 Exercise.radioMenuBuilder('name', ['foo', 'bar']).includes('<label for="name-1">bar</label>')
             ).toBeTruthy()
-        })
 
+        })
     })
 })
