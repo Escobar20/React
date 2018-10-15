@@ -6,3 +6,23 @@ export const clauses = {
     isNaN: v => v,
     isFinite: v => v
 }
+export const radioMenuBuilder = (name, values = []) => {
+    if (values.length === 0) {
+        return '';
+    }
+    return `
+        <fieldset>
+            <legend>${name}'s Menu</legend>
+            ${values.reduce((compiled, value, index) => compiled + radioBuilder(name, value, index, index === 0), '')}
+        </fieldset>
+    `;
+}
+
+const radioBuilder = (name, value, index = 0, checked = false) => {
+    return `
+            <div>
+                <input type="radio" name="${name}" value="${value}" id="${name}-${index}"${checked ? ' checked' : ''}>
+                <label for="${name}-${index}">${value}</label>
+            </div>
+            `
+}

@@ -50,7 +50,9 @@
     - Rest parameters
     - Spread operators
 - Template literals
-- Internationalization
+    - Interpolation
+    - Multi-line string
+    - Tag templating
 
 ## Session 3
 - Destructuring

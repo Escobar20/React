@@ -42,4 +42,40 @@ describe('Exercise 2', function () {
         })
 
     })
+    describe('Implement a radioMenuBuilder that receives a name and options that output the respective html', function () {
+        it('Should return an empty string when the options are empty', function () {
+            expect(
+                Exercise.radioMenuBuilder('name', [])
+            ).toBe(
+                ''
+            )
+        });
+        it('Should draw the legend of the menu', function () {
+            expect(
+                Exercise.radioMenuBuilder('name', ['foo', 'bar']).includes("<legend>name's Menu</legend>")
+            ).toBeTruthy()
+        });
+        it('Should draw a radio for each option', function () {
+            expect(
+                Exercise.radioMenuBuilder('name', ['foo', 'bar']).includes('<input type="radio" name="name" value="bar" id="name-1">')
+            ).toBeTruthy()
+        })
+
+        it('Should draw the first radio option as checked', function () {
+            expect(
+                Exercise.radioMenuBuilder('name', ['foo', 'bar']).includes('<input type="radio" name="name" value="foo" id="name-0" checked>')
+            ).toBeTruthy()
+        })
+
+        it('Should draw a label for each option with the value as their caption and their respective id', function () {
+            expect(
+                Exercise.radioMenuBuilder('name', ['foo', 'bar']).includes('<label for="name-0">foo</label>')
+            ).toBeTruthy()
+
+            expect(
+                Exercise.radioMenuBuilder('name', ['foo', 'bar']).includes('<label for="name-1">bar</label>')
+            ).toBeTruthy()
+        })
+
+    })
 })
