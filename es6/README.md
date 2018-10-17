@@ -59,7 +59,6 @@
 - Generators
 - Promises
 - Classes
-- Regular Expressions
 
 
 ## How to use?
