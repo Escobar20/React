@@ -56,9 +56,9 @@
 
 ## Session 3
 - Destructuring
-- Generators
 - Promises
 - Classes
+- Generators
 
 
 ## How to use?
