@@ -1,6 +1,3 @@
-import { PHI, obj } from '../../public/src/session-1/exercise';
-import * as Ex1 from '../../public/src/session-1/excercise';
-
 function isPhi(phi) {
     return Math.pow(phi, 2) - phi - 1 === 0;
 }
