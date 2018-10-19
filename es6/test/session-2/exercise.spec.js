@@ -1,6 +1,5 @@
 import { Exercise } from "../../public/src/session-2";
 
-
 describe('Exercise 2', function () {
     describe('Calculate the standard deviation from a sample of numbers; use: arrow functions, rest parameters and re-use average or sum functions if you\'d like', function () {
         it('Should exists their method', function () {
@@ -32,13 +31,11 @@ describe('Exercise 2', function () {
                 Exercise.sports, Exercise.clauses.endsWith('ball')
             )).toEqual(['football', 'basketball', 'baseball', 'voleyball'])
         })
-
         it('Where clause using isNaN', function () {
             expect(Exercise.select(
                 Exercise.numbers, Exercise.clauses.isNaN
             )).toEqual(['f', {}, NaN])
         })
-
         it('Where clause using isFinite', function () {
             expect(Exercise.select(
                 Exercise.numbers, Exercise.clauses.isFinite

@@ -56,10 +56,9 @@
 
 ## Session 3
 - Destructuring
-- Generators
 - Promises
 - Classes
-- Regular Expressions
+- Generators
 
 
 ## How to use?
