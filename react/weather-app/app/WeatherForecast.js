@@ -1,43 +1,34 @@
 import React, { Component, Fragment } from "react";
-import Card from "./card";
-import axios from "axios";
+import Card from "./Card";
+
+import { getForecast } from "../api/getApiDatas";
 
 class WeatherForecast extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: "",
-      datas: []
+      forecastList: []
     };
   }
 
   componentDidMount() {
-    this.setState({ id: this.props.params.woeid }, () => {
-      this.apiCall();
+    var id = this.props.params.woeid;
+    this.setState({ id: id }, () => {
+      this.loadWeatherForecast();
     });
   }
 
-  apiCall() {
-    axios
-      .get("/api/location/" + this.state.id)
-      .then(response => {
-        console.log("forecast <> ", response.data);
-        let datas = [];
-        for (var key in response.data.consolidated_weather) {
-          datas.push(response.data.consolidated_weather[key]);
-        }
-        this.setState({ datas: datas }, () => {
-          console.log("Forecast datas  -> ", this.state.datas);
-        });
-      })
-      .catch(err => {
-        console.log("Error in API call", err);
-      });
+  loadWeatherForecast() {
+    getForecast(this.state.id).then(response => {
+      this.setState({ forecastList: response });
+    });
   }
+
   render() {
     return (
       <Fragment>
-        {this.state.datas.map(data => {
+        {this.state.forecastList.map(data => {
           return (
             <Card
               key={data.id}

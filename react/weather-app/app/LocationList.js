@@ -1,59 +1,48 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
+import { getLocations } from "../api/getApiDatas";
 
 class LocationList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       city: "",
-      datas: [],
-      ban: false
+      locationsList: [],
+      error: false
     };
   }
 
   componentDidMount() {
     this.setState({ city: this.props.params.city }, () => {
-      this.apiCall();
+      this.loadLocationList();
     });
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.params.city !== prevProps.params.city) {
-      console.log("¡CHANGED!");
       this.setState({ city: this.props.params.city }, () => {
-        this.apiCall();
+        this.loadLocationList();
       });
     }
   }
-  apiCall() {
-    console.log("city -> ", this.state.city);
-    axios
-      .get("/api/location/search/?query=" + this.state.city)
-      .then(response => {
-        let datas = [];
-        for (var key in response.data) {
-          datas.push(response.data[key]);
-        }
-        if (datas.length != 0) {
-          this.setState({ datas: datas, ban: false }, () => {
-            console.log("this.state.datas -> ", this.state.datas);
-          });
-        } else {
-          this.setState({ ban: true });
-        }
-      })
-      .catch(err => {
-        console.log("Error in API call", err);
-      });
+
+  loadLocationList() {
+    getLocations(this.state.city).then(response => {
+      if (response.length != 0) {
+        this.setState({ locationsList: response, error: false });
+      } else {
+        this.setState({ error: true });
+      }
+    });
   }
 
   render() {
     return (
       <div>
-        {this.state.datas && !this.state.ban ? (
+        {this.state.locationsList && !this.state.error ? (
           <ul className="list-group">
-            {this.state.datas.map(location => {
+            {this.state.locationsList.map(location => {
               return (
                 <li key={location.woeid} className="list-group-item">
                   <ul className="list-inline">
@@ -74,7 +63,7 @@ class LocationList extends Component {
             })}
           </ul>
         ) : null}
-        {this.state.ban ? <p> NO search results </p> : null}
+        {this.state.error ? <p> NO search results </p> : null}
       </div>
     );
   }

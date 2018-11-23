@@ -3,10 +3,6 @@ import SearchLocationForm from "./SearchLocationForm";
 import LocationList from "./LocationList";
 import WeatherForecast from "./WeatherForecast";
 
-// -----------------   Mock
-// import { locations } from "../mock/locations";
-// import { weatherforecast } from "../mock/weather-forecast";
-
 import { Route } from "react-router";
 
 class App extends Component {
