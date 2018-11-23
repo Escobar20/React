@@ -1,7 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { IntlProvider } from "react-intl";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  'Weather app',
-  document.getElementById('app')
+  <IntlProvider locale="en">
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </IntlProvider>,
+  document.getElementById("app")
 );
