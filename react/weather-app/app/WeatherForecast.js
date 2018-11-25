@@ -14,7 +14,7 @@ class WeatherForecast extends Component {
 
   componentDidMount() {
     var id = this.props.params.woeid;
-    this.setState({ id: id }, () => {
+    this.setState({ id }, () => {
       this.loadWeatherForecast();
     });
   }

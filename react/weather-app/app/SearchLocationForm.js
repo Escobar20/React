@@ -11,7 +11,7 @@ class SearchLocationForm extends Component {
 
   handleChange(event) {
     var input = event.target.value;
-    this.setState({ input: input });
+    this.setState({ input });
   }
 
   render() {
