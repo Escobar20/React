@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { getLocations } from "../api/getApiDatas";
+import { getLocations } from "../api/Weather";
 
 class LocationList extends Component {
   constructor(props) {

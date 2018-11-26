@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Card from "./Card";
 
-import { getForecast } from "../api/getApiDatas";
+import { getForecast } from "../api/Weather";
 
 class WeatherForecast extends Component {
   constructor(props) {
@@ -20,8 +20,9 @@ class WeatherForecast extends Component {
   }
 
   loadWeatherForecast() {
-    getForecast(this.state.id).then(response => {
-      this.setState({ forecastList: response });
+    getForecast(this.state.id).then(forecastList => {
+      console.log("----", forecastList);
+      this.setState({ forecastList });
     });
   }
 
